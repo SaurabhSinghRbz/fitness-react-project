@@ -1,7 +1,42 @@
 import React from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { exerciseOptions, fetchData } from "../UtilityFunction/fetchData";
 
 function SearchExercises() {
+    const [search, setSearch] = React.useState("");
+    const [exercises, setExercises] = React.useState("");
+    const [bodyParts, setBodyParts] = React.useState([]);
+
+    React.useEffect(() => {
+        const fetchExercisesData = async () => {
+            const bodyPartsData = await fetchData(
+                "https://exercisedb.p.rapidapi.com/exercises/bodyPartList",
+                exerciseOptions
+            );
+            setBodyParts(["all", ...bodyPartsData])
+        };
+        fetchExercisesData();
+    }, []);
+
+    const handleSearch = async () => {
+        if (search) {
+            const exercisesData = await fetchData(
+                "https://exercisedb.p.rapidapi.com/exercises",
+                exerciseOptions
+            );
+
+            const searchedExercises = exercisesData.filter(
+                (exercise) =>
+                    exercise.name.toLowerCase().includes(search) ||
+                    exercise.target.toLowerCase().includes(search) ||
+                    exercise.bodyPart.toLowerCase().includes(search) ||
+                    exercise.equipment.toLowerCase().includes(search)
+            );
+            setSearch("");
+            setExercises(searchedExercises);
+        }
+    };
+
     return (
         <Stack alignItems="center" justifyContent="center" mt="37px" p="20px">
             <Typography
@@ -25,8 +60,8 @@ function SearchExercises() {
                         width: { lg: "1170px", xs: "350px" },
                     }}
                     height="76px"
-                    value=""
-                    onChange={(e) => { }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value.toLowerCase())}
                     placeholder="Search for exercises..."
                 />
                 <Button
@@ -41,6 +76,7 @@ function SearchExercises() {
                         right: "0px",
                         fontSize: { lg: "20px", xs: "14px" },
                     }}
+                    onClick={handleSearch}
                 >
                     Search
                 </Button>
