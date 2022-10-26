@@ -1,5 +1,4 @@
 body {
-  font-family: 'Josefin Sans';
   background-color: rgba(63, 62, 62, 0.062);
   background-size: c;
 }
@@ -8,6 +7,7 @@ body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: cursive;
 
 }
 
@@ -78,6 +78,7 @@ body {
   padding-bottom: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+  font-family: cursive !important;
 }
 
 

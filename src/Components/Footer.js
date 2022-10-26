@@ -10,7 +10,7 @@ const Footer = () => (
         <img src={Logo} alt="logo" style={{ width: '220px', margin: "-60px 0" }} />
       </Link>
     </Stack>
-    <Typography sx={{ fontSize: { lg: '22px', xs: '20px' } }} pb="22px" textAlign="center" >Made with ❤️ by Saurabh Singh</Typography>
+    <Typography sx={{ fontSize: { lg: '22px', xs: '20px' } }} pb="22px" textAlign="center" fontFamily="cursive">Made with ❤️ by Saurabh Singh</Typography>
   </Box>
 );
 

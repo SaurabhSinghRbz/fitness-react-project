@@ -6,11 +6,12 @@ import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
-const Exercises = ({ exercises, setExercises, bodyPart }) => {
+const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(6);
 
   useEffect(() => {
+    setSearch('');
     const fetchExercisesData = async () => {
       let exercisesData = [];
 
@@ -36,12 +37,18 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
     document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
   };
+  let resultHeading = '';
+  if (search !== '') {
+    resultHeading = `Search Results for ${search}`;
+  } else {
+    resultHeading = `Exercises for ${bodyPart}`;
+  }
 
   if (!currentExercises.length) return <Loader />;
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
-      <Typography variant="h4" fontWeight="bold" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px">Showing Results</Typography>
+      <Typography variant="h4" fontWeight="400" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px" fontFamily="sans-serif">{resultHeading}...</Typography>
       <Stack direction="row" gap="60px 50px" flexWrap="wrap" justifyContent="center">
         {currentExercises.map((exercise, idx) => (
           <ExerciseCard key={idx} exercise={exercise} />
@@ -50,8 +57,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
         {exercises.length > 9 && (
           <Pagination
-            color="standard"
-            shape="rounded"
+            color="primary"
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
