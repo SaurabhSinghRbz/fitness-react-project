@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
-
+import { useToasts } from 'react-toast-notifications';
 import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearch, searching, setSearching }) => {
   const [bodyParts, setBodyParts] = useState([]);
-
+  const { addToast } = useToasts();
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
@@ -19,7 +19,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
 
   const handleSearch = (e) => {
     if (search == '') {
-      alert('Please enter a search term');
+      addToast("Please enter a search term", { appearance: 'error' });
       return;
     }
     setSearching(true);
