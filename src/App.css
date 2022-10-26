@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(109, 3, 3, 0.040);
+  background-color: rgba(15, 5, 5, 0.028);
   background-size: c;
 }
 
@@ -103,12 +103,20 @@ body {
 }
 
 .exercise-video {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 387px;
-  height: 381px;
+  height: auto;
   text-decoration: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 20px;
+}
+
+.exercise-video:hover {
+  transform: scale(1.05, 1.05);
+  transition: all 0.5s ease-in-out;
 }
 
 @media screen and (max-width:1200px) {
