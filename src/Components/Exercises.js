@@ -9,7 +9,6 @@ import Loader from './Loader';
 const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searching, setSearching }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(6);
-
   useEffect(() => {
     setSearch('');
     const fetchExercisesData = async () => {
@@ -18,7 +17,7 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
       if (bodyPart === 'all') {
         exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
       } else {
-        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions).catch((err) => console.log(err));
       }
 
       setExercises(exercisesData);
@@ -27,11 +26,19 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
     fetchExercisesData();
   }, [bodyPart]);
 
+
+  if (exercises.length == 0 && searching == false) {
+    return <Loader />
+  }
+
+
   // Pagination
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
-
+  let currentExercises = [];
+  if (exercises.length > 0) {
+    currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  }
   const paginate = (event, value) => {
     setCurrentPage(value);
 

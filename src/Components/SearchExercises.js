@@ -3,10 +3,13 @@ import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useToasts } from 'react-toast-notifications';
 import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
-
+import Loader from './Loader';
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearch, searching, setSearching }) => {
   const [bodyParts, setBodyParts] = useState([]);
   const { addToast } = useToasts();
+  const [errorMessages, setErrorMessages] = useState("");
+
+
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
@@ -40,6 +43,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
 
   };
 
+
+  setTimeout(() => {
+    if (bodyParts.length == 0) {
+      setErrorMessages("Api is not working, Please contact Saurabh Singh...");
+    }
+  }, 10000);
+
+
   return (
     <Stack alignItems="center" mt="50px" justifyContent="center" p="20px">
       <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center" fontFamily="sans-serif">
@@ -59,7 +70,13 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
         </Button>
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-        <HorizontalScrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
+        {bodyParts.length == 0 ? (
+          <Typography sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center" fontFamily="sans-serif">
+            {errorMessages ? errorMessages : <Loader />}
+          </Typography>
+        ) : (
+          <HorizontalScrollbar data={bodyParts} bodyParts setBodyPart={setBodyPart} bodyPart={bodyPart} />
+        )}
       </Box>
     </Stack>
   );
