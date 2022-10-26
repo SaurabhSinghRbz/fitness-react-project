@@ -66,8 +66,8 @@ body {
 }
 
 .exercise-card {
-  width: 400px;
-  height: 445px;
+  width: 350px;
+  height: auto;
   background: #fff;
   border-top: 4px solid #FF2625;
   border-bottom-left-radius: 20px;
@@ -80,9 +80,7 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
-.exercise-card img {
-  height: 326px;
-}
+
 
 .bodyPart-card {
   transform: scale(1, 1);
@@ -132,9 +130,7 @@ body {
     display: none;
   }
 
-  .exercise-card {
-    width: 320px;
-  }
+
 
   .exercise-video {
     width: 320px;
