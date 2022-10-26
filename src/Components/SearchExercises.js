@@ -4,8 +4,7 @@ import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearch }) => {
-  // const [search, setSearch] = useState('');
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearch, searching, setSearching }) => {
   const [bodyParts, setBodyParts] = useState([]);
 
   useEffect(() => {
@@ -18,20 +17,27 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
     fetchExercisesData();
   }, []);
 
-  const handleSearch = async (e) => {
-    document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
-    if (search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-
-      const searchedExercises = exercisesData.filter(
-        (item) => item.name.toLowerCase().includes(search)
-          || item.target.toLowerCase().includes(search)
-          || item.equipment.toLowerCase().includes(search)
-          || item.bodyPart.toLowerCase().includes(search),
-      );
-      // setSearch()
-      setExercises(searchedExercises);
+  const handleSearch = (e) => {
+    if (search == '') {
+      alert('Please enter a search term');
+      return;
     }
+    setSearching(true);
+    document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(async () => {
+      if (search) {
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions).then((data) => setSearching(false));
+
+        const searchedExercises = exercisesData.filter(
+          (item) => item.name.toLowerCase().includes(search)
+            || item.target.toLowerCase().includes(search)
+            || item.equipment.toLowerCase().includes(search)
+            || item.bodyPart.toLowerCase().includes(search),
+        );
+        setExercises(searchedExercises);
+      }
+    }, 1000);
+
   };
 
   return (
@@ -42,7 +48,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
       <Box mb="72px" width="100vw" display="flex" justifyContent="center" >
         <TextField
           height="80px"
-          sx={{ input: { fontWeight: '600', width: { xs: "60vw", ms: "70vw" } }, backgroundColor: '#fff' }}
+          sx={{ input: { fontWeight: '600', minLength: "3", width: { xs: "60vw", ms: "70vw" } }, backgroundColor: '#fff' }}
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search Exercises"

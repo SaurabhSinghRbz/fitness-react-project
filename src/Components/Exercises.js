@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
-const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch }) => {
+const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searching, setSearching }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [exercisesPerPage] = useState(6);
 
@@ -47,25 +47,35 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch }) => 
   if (!currentExercises.length) return <Loader />;
 
   return (
-    <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
-      <Typography variant="h4" fontWeight="400" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px" fontFamily="sans-serif">{resultHeading}...</Typography>
-      <Stack direction="row" gap="60px 50px" flexWrap="wrap" justifyContent="center">
-        {currentExercises.map((exercise, idx) => (
-          <ExerciseCard key={idx} exercise={exercise} />
-        ))}
+    <Box>
+      {searching ? <Stack justifyContent="center" spacing={2} display="flex" direction="column">
+        <Typography textAlign="center"><CircularProgress /></Typography>
+
+        <Typography fontWeight={400} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center" fontFamily="sans-serif">
+          Searching for {search}...
+        </Typography>
       </Stack>
-      <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
-        {exercises.length > 9 && (
-          <Pagination
-            color="primary"
-            defaultPage={1}
-            count={Math.ceil(exercises.length / exercisesPerPage)}
-            page={currentPage}
-            onChange={paginate}
-            size="large"
-          />
-        )}
-      </Stack>
+        :
+        <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
+          <Typography variant="h4" fontWeight="400" sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="46px" fontFamily="sans-serif">{resultHeading}...</Typography>
+          <Stack direction="row" gap="60px 50px" flexWrap="wrap" justifyContent="center">
+            {currentExercises.map((exercise, idx) => (
+              <ExerciseCard key={idx} exercise={exercise} />
+            ))}
+          </Stack>
+          <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
+            {exercises.length > 9 && (
+              <Pagination
+                color="primary"
+                defaultPage={1}
+                count={Math.ceil(exercises.length / exercisesPerPage)}
+                page={currentPage}
+                onChange={paginate}
+                size="large"
+              />
+            )}
+          </Stack>
+        </Box>}
     </Box>
   );
 };
