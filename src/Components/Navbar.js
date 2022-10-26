@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
-import Logo from '../assets/images/Logo4.png';
+import Logo from '../assets/images/logo.png';
 
 const Navbar = () => {
-  return <Stack direction="row" alignContent="center" sx={{ gap: { sm: '50px' }, justifyContent: { xs: "space-around", sm: "left" }, pl: { xs: "0", sm: "20px" } }} pl="40px" mt="0">
+  return <Stack direction="row" alignContent="center" sx={{ gap: { sm: '50px', xs: "20px" }, justifyContent: 'left', pl: { xs: "5px", sm: "20px" } }} pl="40px" mt="0">
     <Link to="/">
       <img src={Logo} alt="logo" style={{ width: '110px', margin: '0px' }} />
     </Link>
