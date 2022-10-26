@@ -94,9 +94,13 @@ body {
   transform: scale(1.1, 1.1);
 }
 
+
+
 .search-btn:hover {
+  font-weight: 700;
   color: #FF2625 !important;
   border: 1px solid #FF2625 !important;
+  transition: all 0.5s ease-in-out;
 }
 
 .exercise-video {

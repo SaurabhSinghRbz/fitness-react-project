@@ -19,6 +19,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   }, []);
 
   const handleSearch = async () => {
+    document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
     if (search) {
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
@@ -28,29 +29,26 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           || item.equipment.toLowerCase().includes(search)
           || item.bodyPart.toLowerCase().includes(search),
       );
-
-      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-
       setSearch('');
       setExercises(searchedExercises);
     }
   };
 
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+    <Stack alignItems="center" mt="50px" justifyContent="center" p="20px">
       <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center">
         Awesome Exercises You <br /> Should Know
       </Typography>
-      <Box position="relative" mb="72px">
+      <Box mb="72px" width="100vw" display="flex" justifyContent="center" >
         <TextField
-          height="76px"
-          sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '1170px', xs: '350px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+          height="80px"
+          sx={{ input: { fontWeight: '600', width: { xs: "60vw", ms: "70vw" } }, backgroundColor: '#fff' }}
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search Exercises"
-          type="text"
+          type="search"
         />
-        <Button className="search-btn" sx={{ bgcolor: '#FF2625', color: '#fff', textTransform: 'none', width: { lg: '173px', xs: '80px' }, height: '56px', position: 'absolute', right: '0px', fontSize: { lg: '20px', xs: '14px' } }} onClick={handleSearch}>
+        <Button className="search-btn" sx={{ bgcolor: '#FF2625', color: '#fff', textTransform: 'none', width: { xs: "25vw", ms: "18vw", lg: "15vw" }, height: '56px', border: "1px solid red", fontSize: { lg: '20px', xs: '14px' }, borderRadius: '0 30px 30px 0', }} onClick={handleSearch}>
           Search
         </Button>
       </Box>
