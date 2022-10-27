@@ -29,8 +29,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
     document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
     setTimeout(async () => {
       if (search) {
-        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions).then((data) => setSearching(false));
-
+        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions)
+        setSearching(false);
         const searchedExercises = exercisesData.filter(
           (item) => item.name.toLowerCase().includes(search)
             || item.target.toLowerCase().includes(search)

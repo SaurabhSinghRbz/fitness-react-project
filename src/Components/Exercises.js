@@ -17,7 +17,7 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
       if (bodyPart === 'all') {
         exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
       } else {
-        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions).catch((err) => console.log(err));
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
       }
 
       setExercises(exercisesData);
@@ -26,6 +26,13 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
     fetchExercisesData();
   }, [bodyPart]);
 
+
+  if (!exercises.length && search !== '' && searching == false) {
+    return <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }} margin="50px 0">
+      <Typography variant="h5" textAlign="center" color="error">No results found for "{search}"</Typography>
+      <Typography variant="h5" textAlign="center" color="error">Please search for something else...</Typography>
+    </Box>
+  }
 
   if (exercises.length == 0 && searching == false) {
     return <Loader />
@@ -51,7 +58,10 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
     resultHeading = `Exercises for ${bodyPart}`;
   }
 
-  if (!currentExercises.length) return <Loader />;
+
+
+
+  // if (!currentExercises.length) return <Loader />;
 
   return (
     <Box>
