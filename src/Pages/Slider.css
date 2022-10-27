@@ -39,7 +39,7 @@ body {
 
 .swiper-slide img {
     display: block;
-    width: 90%;
+    width: 100%;
     height: 550px;
     object-fit: cover;
 }
@@ -51,14 +51,12 @@ body {
 
 @media screen and (max-width: 1180px) {
     .swiper-slide img {
-        width: 95%;
         height: 450px;
     }
 }
 
 @media screen and (max-width: 450px) {
     .swiper-slide img {
-        width: 95%;
         height: 220px;
     }
 }

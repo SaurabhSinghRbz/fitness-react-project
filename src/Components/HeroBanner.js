@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 
 import HeroBannerImage from '../assets/images/banner.jpg';
-// import BackgoundImage from "../assets/images/2.jpg";
+
 const HeroBanner = () => (
   <Box sx={{ mt: { lg: '50px', xs: '40px' }, ml: { sm: '50px' } }} position="relative" p="20px" >
     <Typography color="#FF2625" fontWeight="600" fontSize="50px" fontFamily="sans-serif">Saurabh's <br />Fitness Club</Typography>

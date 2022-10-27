@@ -53,7 +53,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
         <Typography variant="h6" color="error">LinkedIn: <a href="https://www.linkedin.com/in/saurabh-singh-rbz1602/" target="_blank" rel="noreferrer">Saurabh Singh</a></Typography>
       </Box>);
     }
-  }, 10000);
+  }, 15000);
 
 
   return (

@@ -27,7 +27,7 @@ import { Typography } from "@mui/material";
 export default function Slider() {
     return (
         <>
-            <Typography fontFamily="cursive" align="center" sx={{ margin: "40px 0", fontWeight: "600", fontSize: { lg: "50px", ms: "40px", xs: "32px" } }}>Don't <span style={{ color: "#FF2625" }}>DREAM</span> for it,<span style={{ color: "#FF2625" }}>TRAIN</span> for it...</Typography>
+            <Typography fontFamily="cursive" align="center" sx={{ margin: "40px 0", fontWeight: "600", fontSize: { lg: "50px", ms: "40px", xs: "35px" } }}>Don't <span style={{ color: "#FF2625" }}>DREAM</span> for it,<span style={{ color: "#FF2625" }}>TRAIN</span> for it...</Typography>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
