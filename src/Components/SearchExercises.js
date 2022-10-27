@@ -47,11 +47,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
   setTimeout(() => {
     if (bodyParts.length === 0) {
       setErrorMessages(<Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }}>
-        <Typography variant="h4" color="error">Error loading data...</Typography>
+        <Typography variant="h6" color="error">Unable to fetch data, API is not working...</Typography>
         <Typography variant="h6" color="error">Please contact the developer...</Typography>
-        <Typography variant="h6" color="error">LinkedIn: <a href="https://www.linkedin.com/in/saurabh-singh-rbz1602/" target="_blank" rel="noreferrer">Saurabh Singh</a></Typography>
-        <Typography variant="h6" color="error">Email: <a href="mailto:singhsaurabh162000gmail.com" target="_blank" rel="noreferrer">singhsaurabh162000gmail.com</a></Typography>
         <Typography variant="h6" color="error">Github: <a href="https://github.com/SaurabhSinghRbz" target="_blank" rel="noreferrer">SaurabhSinghRbz</a></Typography>
+        <Typography variant="h6" color="error">LinkedIn: <a href="https://www.linkedin.com/in/saurabh-singh-rbz1602/" target="_blank" rel="noreferrer">Saurabh Singh</a></Typography>
       </Box>);
     }
   }, 10000);
