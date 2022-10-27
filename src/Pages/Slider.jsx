@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "./styles.css";
+import "./Slider.css";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper";
@@ -27,7 +27,7 @@ import { Typography } from "@mui/material";
 export default function Slider() {
     return (
         <>
-            <Typography fontFamily="cursive" align="center" sx={{ margin: "40px 0", fontWeight: "600", fontSize: { lg: "50px", ms: "40px", xs: "35px" } }}>Don't <span style={{ color: "#FF2625" }}>DREAM</span> for it,<span style={{ color: "#FF2625" }}>TRAIN</span> for it...</Typography>
+            <Typography fontFamily="cursive" align="center" sx={{ margin: "40px 0", fontWeight: "600", fontSize: { lg: "50px", ms: "40px", xs: "32px" } }}>Don't <span style={{ color: "#FF2625" }}>DREAM</span> for it,<span style={{ color: "#FF2625" }}>TRAIN</span> for it...</Typography>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -36,7 +36,7 @@ export default function Slider() {
                     clickable: true,
                 }}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 modules={[Pagination, Autoplay]}
@@ -52,8 +52,6 @@ export default function Slider() {
                 <SwiperSlide><img src={img7} alt="gym-poster-7" /></SwiperSlide>
                 <SwiperSlide><img src={img8} alt="gym-poster-8" /></SwiperSlide>
                 <SwiperSlide><img src={img9} alt="gym-poster-9" /></SwiperSlide>
-
-
             </Swiper>
         </>
     );

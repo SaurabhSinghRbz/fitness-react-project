@@ -5,8 +5,6 @@ import Exercises from '../components/Exercises';
 import SearchExercises from '../components/SearchExercises';
 import HeroBanner from '../components/HeroBanner';
 import Slider from './Slider';
-import "swiper/css/bundle";
-import "./styles.css";
 
 const Home = () => {
   const [exercises, setExercises] = useState([]);
