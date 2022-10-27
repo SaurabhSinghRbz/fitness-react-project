@@ -18,3 +18,19 @@ Being physically active can improve your brain health, help manage weight, reduc
 - Exercise can help with relaxation and sleep quality.
 - Improve Your Ability to do Daily Activities and Prevent Falls.
 - Increase Your Chances of Living Longer.
+
+
+# _About Project_
+
+This website is not a clone of any other website. This is a simple body exercise app. It contains more than a thousand exercises.
+
+## Features of website :
+
+- On the landing page, you will see a simple navigation bar and a simple slider below it.
+- On the landing page, there is a category section containing all the categories, by which you can filter out exercises.
+- On the landing page, you will see a search box, from there you can search for any exercise and if it causes any error it will reflect you with a proper massage.
+- On clicking on any exercise, it will redirect you to another page, where you can see details of this exercise.
+- On the exercise information page, you will be seeing related videos to that exercise.
+- On the exercise information page, you will see similar exercises and similar equipment exercises.
+
+
