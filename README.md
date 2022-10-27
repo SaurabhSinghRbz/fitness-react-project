@@ -82,9 +82,9 @@ Technologies that I used to build this project are listed below, if you are not 
 - [CSS-3](https://www.w3schools.com/css/default.asp)
 
 
-## _[Demo Video](https://www.linkedin.com/posts/saurabh-singh-rbz1602_javascriptdeveloper-github-react-activity-6989862529459994624-3DtU?utm_source=share&utm_medium=member_android)_
-You can see demo vieo on clicking on it.
+## _Here are some of my website screenshots..._
 
+### Landing Page 👇
 
 
 ## Feedback :
