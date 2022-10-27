@@ -34,3 +34,63 @@ This website is not a clone of any other website. This is a simple body exercise
 - On the exercise information page, you will see similar exercises and similar equipment exercises.
 
 
+## Instructions to browse the project :
+
+First you need to clone or download this project from here.
+
+https://github.com/SaurabhSinghRbz/fitness-react-project.git
+
+After cloning the project you need to install its dependencies, for this run this command.
+Do this in both folders (client and Server)
+
+```
+npm i
+```
+
+or
+
+```
+npm intall
+```
+
+If you are visiting after long time and you are facing issue with installing the dependencies, then you can use this command.
+
+```
+npm i --force
+```
+
+or
+
+```
+npm i --legacy-peer-deps
+```
+
+After successful clone, run this command to run it on localhost server
+
+```
+npm start
+```
+
+## Technologies Used :
+
+Technologies that I used to build this project are listed below, if you are not familier with any of them, you can click on it and read it.
+
+- [Javascript](https://www.w3schools.com/js/default.asp)
+- [React](https://reactjs.org/)
+- [Material Ui](https://mui.com/)
+- [HTML-5](https://www.w3schools.com/html/)
+- [CSS-3](https://www.w3schools.com/css/default.asp)
+
+
+## _[Demo Video](https://www.linkedin.com/posts/saurabh-singh-rbz1602_javascriptdeveloper-github-react-activity-6989862529459994624-3DtU?utm_source=share&utm_medium=member_android)_
+You can see demo vieo on clicking on it.
+
+
+
+## Feedback :
+
+If you think of anything that could have been better, share your thoughts, and I'll be happy to work on that.
+
+# _Thank you...._
+
+
