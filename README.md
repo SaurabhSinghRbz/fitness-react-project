@@ -22,7 +22,7 @@ Being physically active can improve your brain health, help manage weight, reduc
 
 # _About Project_
 
-This website is not a clone of any other website. This is a simple body exercise app. It contains more than a thousand exercises.
+This is an individual project. Everything is created by me. This website is not a clone of any other website. This is a simple body exercise app. It contains more than a thousand exercises.
 
 ## Features of website :
 
@@ -85,6 +85,31 @@ Technologies that I used to build this project are listed below, if you are not 
 ## _Here are some of my website screenshots..._
 
 ### Landing Page 👇
+![Screenshot (77)](https://user-images.githubusercontent.com/90378786/198342605-b757c9a1-0a6e-4c38-b426-6bf59b5aff9c.png)
+
+### Slider 👇
+![Screenshot (78)](https://user-images.githubusercontent.com/90378786/198342731-14ab9980-f9b3-4cab-a766-6d5e86d226ac.png)
+
+### Seaerch and Categoery Part 👇
+![Screenshot (79)](https://user-images.githubusercontent.com/90378786/198342981-a039f0dc-33f2-473e-b907-f83454365a9f.png)
+
+### Exercises 👇
+![Screenshot (80)](https://user-images.githubusercontent.com/90378786/198342987-1a440609-f162-4990-bc0e-129ee2d27087.png)
+
+### Exercise Details 👇
+![Screenshot (81)](https://user-images.githubusercontent.com/90378786/198343461-5b27708c-a9bf-407f-8f77-3bcfed76401a.png)
+
+### Related Videos 👇
+![Screenshot (82)](https://user-images.githubusercontent.com/90378786/198343483-710bab3b-43db-4a9e-b76b-b7b3c123737c.png)
+
+### Related Exercises 👇
+![Screenshot (83)](https://user-images.githubusercontent.com/90378786/198343512-af019833-161e-4282-bc67-35773ed3ccf3.png)
+
+### Related Equipment Exercises 👇
+![Screenshot (84)](https://user-images.githubusercontent.com/90378786/198343523-0fbfa632-bbe3-4d60-97d9-c0da290ddb4a.png)
+
+
+
 
 
 ## Feedback :
