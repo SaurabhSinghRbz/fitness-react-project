@@ -21,7 +21,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
   }, []);
 
   const handleSearch = (e) => {
-    if (search == '') {
+    if (search === '') {
       addToast("Please enter a search term", { appearance: 'error' });
       return;
     }
@@ -45,8 +45,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
 
 
   setTimeout(() => {
-    if (bodyParts.length == 0) {
-      setErrorMessages("Api is not working, Please contact Saurabh Singh...");
+    if (bodyParts.length === 0) {
+      setErrorMessages(<Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }}>
+        <Typography variant="h4" color="error">Error loading data...</Typography>
+        <Typography variant="h6" color="error">Please contact the developer...</Typography>
+        <Typography variant="h6" color="error">LinkedIn: <a href="https://www.linkedin.com/in/saurabh-singh-rbz1602/" target="_blank" rel="noreferrer">Saurabh Singh</a></Typography>
+        <Typography variant="h6" color="error">Email: <a href="mailto:singhsaurabh162000gmail.com" target="_blank" rel="noreferrer">singhsaurabh162000gmail.com</a></Typography>
+        <Typography variant="h6" color="error">Github: <a href="https://github.com/SaurabhSinghRbz" target="_blank" rel="noreferrer">SaurabhSinghRbz</a></Typography>
+      </Box>);
     }
   }, 10000);
 
@@ -70,7 +76,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
         </Button>
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
-        {bodyParts.length == 0 ? (
+        {bodyParts.length === 0 ? (
           <Typography sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center" fontFamily="sans-serif">
             {errorMessages ? errorMessages : <Loader />}
           </Typography>
