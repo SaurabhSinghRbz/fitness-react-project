@@ -50,7 +50,7 @@ npm i
 or
 
 ```
-npm intall
+npm install
 ```
 
 If you are visiting after long time and you are facing issue with installing the dependencies, then you can use this command.
