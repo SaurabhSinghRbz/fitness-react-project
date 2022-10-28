@@ -32,7 +32,7 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
 
 
   if (!exercises.length && search !== '' && searching == false) {
-    return <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }} margin="50px 0">
+    return <Box id="exercises" sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }} margin="50px 0">
       <Typography variant="h5" textAlign="center" color="error">No results found for "{search}"</Typography>
       <Typography variant="h5" textAlign="center" color="error">Please search for something else...</Typography>
     </Box>
