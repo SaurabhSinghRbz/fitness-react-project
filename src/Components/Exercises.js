@@ -19,6 +19,8 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
 
         exercisesData = await fetchMyApiData('exercises');
       } else {
+        document.getElementById("exercises").scrollIntoView();
+
         // exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
         // const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/bodyparts/${bodyPart}`);
         exercisesData = await fetchMyApiData(`bodyparts/${bodyPart}`);
