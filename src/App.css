@@ -110,12 +110,12 @@ a {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 8px;
   width: 387px;
   height: auto;
   text-decoration: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-top-left-radius: 20px;
+  border-top-left-radius: 25px;
 }
 
 .exercise-video:hover {

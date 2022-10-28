@@ -12,23 +12,36 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
       </Typography>
       <Stack direction="row" gap="50px" flexWrap="wrap" justifyContent="center">
         {exerciseVideos?.slice(0, 9)?.map((item, index) => (
-          <a
-            key={index}
-            className="exercise-video"
-            href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img style={{ borderTopLeftRadius: '20px' }} src={item.video.thumbnails[0].url} alt={item.video.title} width="100%" height="220px" />
-            <Box>
+          // <a
+          //   key={index}
+          //   className="exercise-video"
+          //   href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
+          //   target="_blank"
+          //   rel="noreferrer"
+          // >
+          //   <img style={{ borderTopLeftRadius: '20px' }} src={item.video.thumbnails[0].url} alt={item.video.title} width="100%" height="220px" />
+          //   <Box>
+          //     <Typography sx={{ fontSize: { lg: '20px', xs: '16px' } }} fontWeight={700} fontFamily="cursive" color="#000">
+          //       {item.video.title}
+          //     </Typography>
+          //     <Typography fontSize="15px" color="#000" fontFamily="monospace" fontWeight="400">
+          //       {item.video.channelName}
+          //     </Typography>
+          //   </Box>
+          // </a>
+          <Box key={index} className="exercise-video">
+            <iframe width="100%" height="200px" style={{ borderRadius: "25px 0 0 0" }} title="YouTube video player" src={`https://www.youtube.com/embed/${item.video.videoId}`} allowFullScreen />
+            <a href={`https://www.youtube.com/watch?v=${item.video.videoId}`} target="_blank" rel="noreferrer">
               <Typography sx={{ fontSize: { lg: '20px', xs: '16px' } }} fontWeight={700} fontFamily="cursive" color="#000">
                 {item.video.title}
               </Typography>
+            </a>
+            <a href={`https://www.youtube.com/channel/${item.video.channelId}`} target="_blank" rel="noreferrer">
               <Typography fontSize="15px" color="#000" fontFamily="monospace" fontWeight="400">
                 {item.video.channelName}
               </Typography>
-            </Box>
-          </a>
+            </a>
+          </Box>
         ))}
       </Stack>
     </Box>
