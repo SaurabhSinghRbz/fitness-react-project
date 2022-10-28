@@ -16,6 +16,10 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setExerciseDetail({});
+    setExerciseVideos([]);
+    setTargetMuscleExercises([]);
+    setEquipmentExercises([]);
 
     const fetchExercisesData = async () => {
       // const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
