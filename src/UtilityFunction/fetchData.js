@@ -20,3 +20,10 @@ export const fetchData = async (url, options) => {
 
   return data;
 };
+
+
+export const fetchMyApiData = async (url) => {
+  const res = await fetch(`https://saurabh-fitness-club.cyclic.app/api/${url}`);
+  const data = await res.json();
+  return data;
+}

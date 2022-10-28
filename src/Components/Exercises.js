@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import { exerciseOptions, fetchData } from '../UtilityFunction/fetchData';
+import { exerciseOptions, fetchData, fetchMyApiData } from '../UtilityFunction/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
@@ -16,12 +16,12 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
 
       if (bodyPart === 'all') {
         // exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-        const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/exercises`);
-        exercisesData = await data.json();
+
+        exercisesData = await fetchMyApiData('exercises');
       } else {
         // exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
-        const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/bodyparts/${bodyPart}`);
-        exercisesData = await data.json();
+        // const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/bodyparts/${bodyPart}`);
+        exercisesData = await fetchMyApiData(`bodyparts/${bodyPart}`);
       }
 
       setExercises(exercisesData);
