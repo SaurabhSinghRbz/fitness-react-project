@@ -13,7 +13,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         <Stack direction="row" gap="50px" flexWrap="wrap" justifyContent="center">
           {exerciseVideos?.slice(0, 9)?.map((item, index) => (
             <Box key={index} className="exercise-video">
-              <iframe width="100%" height="200px" style={{ borderRadius: "25px 0 0 0" }} title="YouTube video player" src={`https://www.youtube.com/embed/${item.video.videoId}`} allowFullScreen />
+              <iframe width="100%" height="200px" style={{ borderRadius: "15px 0 0 0" }} title="YouTube video player" src={`https://www.youtube.com/embed/${item.video.videoId}`} allowFullScreen />
               <a href={`https://www.youtube.com/watch?v=${item.video.videoId}`} target="_blank" rel="noreferrer">
                 <Typography sx={{ fontSize: { lg: '20px', xs: '16px' } }} fontWeight={700} fontFamily="cursive" color="#000">
                   {item.video.title}

@@ -115,8 +115,10 @@ a {
   height: auto;
   text-decoration: none;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-top-left-radius: 25px;
+  border-top-left-radius: 20px;
 }
+
+
 
 .exercise-video:hover {
   transform: scale(1.05, 1.05);
@@ -152,8 +154,14 @@ a {
 
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
   .exercise-card {
     width: 280px;
   }
+
+  .exercise-video {
+    padding: 8px;
+    border-radius: 15px;
+  }
+
 }
