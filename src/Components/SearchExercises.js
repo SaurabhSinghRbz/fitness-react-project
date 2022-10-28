@@ -12,8 +12,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+      // const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
 
+      const data = await fetch('https://saurabh-fitness-club.cyclic.app/api/bodyparts')
+      const bodyPartsData = await data.json();
       setBodyParts(['all', ...bodyPartsData]);
     };
 
@@ -29,7 +31,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
     document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
     setTimeout(async () => {
       if (search) {
-        const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions)
+        // const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions)
+        const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/exercises`)
+        const exercisesData = await data.json();
         setSearching(false);
         const searchedExercises = exercisesData.filter(
           (item) => item.name.toLowerCase().includes(search)
@@ -48,7 +52,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
     if (bodyParts.length === 0) {
       setErrorMessages(<Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }}>
         <Typography variant="h6" color="error">Unable to fetch data, API is not working...</Typography>
-        <Typography variant="h6" color="error">Please contact the developer...</Typography>
+        <Typography variant="h6" color="error">Please contact the developer, or try again later...</Typography>
         <Typography variant="h6" color="error">Github: <a href="https://github.com/SaurabhSinghRbz" target="_blank" rel="noreferrer">SaurabhSinghRbz</a></Typography>
         <Typography variant="h6" color="error">LinkedIn: <a href="https://www.linkedin.com/in/saurabh-singh-rbz1602/" target="_blank" rel="noreferrer">Saurabh Singh</a></Typography>
       </Box>);

@@ -15,9 +15,13 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
       let exercisesData = [];
 
       if (bodyPart === 'all') {
-        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+        // exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+        const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/exercises`);
+        exercisesData = await data.json();
       } else {
-        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
+        // exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
+        const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/bodyparts/${bodyPart}`);
+        exercisesData = await data.json();
       }
 
       setExercises(exercisesData);
