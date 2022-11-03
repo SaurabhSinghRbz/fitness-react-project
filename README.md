@@ -27,6 +27,8 @@ Being physically active can improve your brain health, help manage weight, reduc
 # _About Project_
 
 This is an individual project. Everything is created by me. This website is not a clone of any other website. This is a simple body exercise app. It contains more than a thousand exercises.
+I have also created it's api. You can refer to the repo for more details. [(Server)](https://github.com/SaurabhSinghRbz/fitness-club-server)
+
 
 ## Features of website :
 
