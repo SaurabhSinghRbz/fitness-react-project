@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Stack, Typography } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import { exerciseOptions, fetchData, fetchMyApiData } from '../UtilityFunction/fetchData';
+import { fetchMyApiData } from '../UtilityFunction/fetchData';
 import ExerciseCard from './ExerciseCard';
 import Loader from './Loader';
 
@@ -15,14 +15,9 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
       let exercisesData = [];
 
       if (bodyPart === 'all') {
-        // exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-
         exercisesData = await fetchMyApiData('exercises');
       } else {
         document.getElementById("exercises").scrollIntoView();
-
-        // exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
-        // const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/bodyparts/${bodyPart}`);
         exercisesData = await fetchMyApiData(`bodyparts/${bodyPart}`);
       }
 
@@ -33,14 +28,14 @@ const Exercises = ({ exercises, setExercises, bodyPart, search, setSearch, searc
   }, [bodyPart]);
 
 
-  if (!exercises.length && search !== '' && searching == false) {
+  if (!exercises.length && search !== '' && searching === false) {
     return <Box id="exercises" sx={{ display: 'flex', justifyContent: 'center', flexDirection: "column" }} margin="50px 0">
       <Typography variant="h5" textAlign="center" color="error">No results found for "{search}"</Typography>
       <Typography variant="h5" textAlign="center" color="error">Please search for something else...</Typography>
     </Box>
   }
 
-  if (exercises.length == 0 && searching == false) {
+  if (exercises.length === 0 && searching === false) {
     return <Loader />
   }
 

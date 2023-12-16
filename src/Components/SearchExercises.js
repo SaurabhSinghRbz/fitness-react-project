@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useToasts } from 'react-toast-notifications';
-import { exerciseOptions, fetchData, fetchMyApiData } from '../UtilityFunction/fetchData';
+import { fetchMyApiData } from '../UtilityFunction/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 import Loader from './Loader';
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearch, searching, setSearching }) => {
@@ -12,8 +12,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      // const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-
       const bodyPartsData = await fetchMyApiData('bodyparts')
       setBodyParts(['all', ...bodyPartsData]);
     };
@@ -30,8 +28,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart, search, setSearc
     document.getElementById('exercises').scrollIntoView({ behavior: 'smooth' });
     setTimeout(async () => {
       if (search) {
-        // const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions)
-        // const data = await fetch(`https://saurabh-fitness-club.cyclic.app/api/exercises`)
         const exercisesData = await fetchMyApiData(`exercises`)
         setSearching(false);
         const searchedExercises = exercisesData.filter(
