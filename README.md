@@ -1,5 +1,9 @@
-# _[React Fitness App...](https://fitness-club-app.netlify.app/)_
+# _[React Fitness App...](https://fitness-club-app.web.app/)_
 ![Screenshot (77)](https://user-images.githubusercontent.com/90378786/198332094-857d1b00-b0cf-421e-9530-4d258081567e.png)
+
+_[Firebase Live Link](https://fitness-club-app.web.app/)_
+
+ _[Netlify Live Link](https://fitness-club-app.netlify.app/)_
 
 # _Fitness_
 Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest along with a formal recovery plan.
@@ -23,6 +27,8 @@ Being physically active can improve your brain health, help manage weight, reduc
 # _About Project_
 
 This is an individual project. Everything is created by me. This website is not a clone of any other website. This is a simple body exercise app. It contains more than a thousand exercises.
+I have also created it's api. You can refer to the repo for more details. [(Server)](https://github.com/SaurabhSinghRbz/fitness-club-server)
+
 
 ## Features of website :
 
