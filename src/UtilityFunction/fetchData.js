@@ -39,9 +39,6 @@ export const fetchMyApiData = async (url) => {
 		}
 	});
 	const result = await res.json();
-
-
-	console.log({ result });
 	if (result.data) {
 		result.data.forEach(exercise => {
 			if (exercise.exerciseId) {
@@ -53,7 +50,6 @@ export const fetchMyApiData = async (url) => {
 		if (result.exerciseId) {
 			result.gifUrl = `${fitnessClubApi}/api/exercises/${result.exerciseId}.gif`;
 		}
-		console.log({ result });
 		return result;
 	}
 }
